@@ -9,6 +9,7 @@ import (
 
 	"github.com/a-h/templ"
 	chromahtml "github.com/alecthomas/chroma/v2/formatters/html"
+	figure "github.com/mangoumbrella/goldmark-figure"
 	"github.com/yuin/goldmark"
 	highlighting "github.com/yuin/goldmark-highlighting/v2"
 	"github.com/yuin/goldmark-meta"
@@ -23,6 +24,9 @@ func parseMD(data []byte) (*models.Blog, error) {
 		goldmark.WithExtensions(extension.GFM),
 		goldmark.WithExtensions(
 			meta.Meta,
+		),
+		goldmark.WithExtensions(
+			figure.Figure,
 		),
 		goldmark.WithExtensions(highlighting.NewHighlighting(
 			highlighting.WithStyle("dracula"),
