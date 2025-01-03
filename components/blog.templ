@@ -10,6 +10,7 @@ templ layout() {
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
@@ -35,7 +36,7 @@ templ layout() {
 
 templ Page(blog *models.Blog, nav *models.Navigation) {
 @layout() {
-<div class="w-full h-screen bg-white/10">
+<div class="w-full min-h-screen bg-white/10">
 	<div class="container mx-auto max-w-3xl p-6 pt-10">
 		@post(blog)
 		@blogNavigator(nav)
@@ -47,13 +48,16 @@ templ Page(blog *models.Blog, nav *models.Navigation) {
 
 templ post(blog *models.Blog) {
 <h3 class="text-xl text-center">Blog Streak</h3>
-<p class="text-center mt-2">🔥 2 days streak</p>
+<p class="text-center mt-2">🔥 3 days streak</p>
 <div class="mt-10 space-y-4">
 	<h6>Title</h6>
 	<h2 class="text-3xl font-semibold">{ blog.Title }</h2>
 	<h6>Published</h6>
-	<h2 class="font-semibold">{ blog.PublishedAt }</h2>
-	<p class="mt-10 text-lg tracking-wider leading-loose">{ blog.Body }</p>
+	<h2 class="font-semibold">{ blog.PublishedDate }</h2>
+	<div
+		class="prose mt-10 tracking-wider leading-loose text-white prose-body:text-white prose-strong:text-white prose-headings:text-white prose-blockquote:text-white prose-code:text-white prose-code:bg-pink-800 prose-code:p-1 prose-code:rounded-lg prose-code:before:content-[''] prose-code:after:content-[''] prose-a:text-pink-500">
+		@blog.Body
+	</div>
 </div>
 }
 
