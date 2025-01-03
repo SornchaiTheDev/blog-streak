@@ -1,0 +1,15 @@
+<html><head><title>Blog Streak 2025 | SornchaiTheDev</title><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><script src=\"https://cdn.tailwindcss.com\"></script><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;display=swap\" rel=\"stylesheet\"><style>\n\t\tbody {\n\t\t\tfont-family: \"JetBrains Mono\", serif;\n\t\t\tfont-optical-sizing: auto;\n\t\t\tfont-weight: 400;\n\t\t\tfont-style: normal;\n\t\t\tbackground: url(\"assets/background.gif\");\n\t\t\tcolor: #fff;\n\t\t}\n\t</style></head><body>
+</body></html>
+<div class=\"w-full h-screen bg-white/10\"><div class=\"container mx-auto max-w-3xl p-6 pt-10\">
+</div>
+</div>
+<h3 class=\"text-xl text-center\">Blog Streak</h3><p class=\"text-center mt-2\">🔥 2 days streak</p><div class=\"mt-10 space-y-4\"><h6>Title</h6><h2 class=\"text-3xl font-semibold\">
+</h2><h6>Published</h6><h2 class=\"font-semibold\">
+</h2><p class=\"mt-10 text-lg tracking-wider leading-loose\">
+</p></div>
+<div class=\"p-6 flex justify-center items-center\"><h6 class=\"text-sm tracking-wide\">Made with ☕ by <a class=\"underline font-semibold hover:text-pink-500\" href=\"https://github.com/SornchaiTheDev\" target=\"_blank\">SornchaiTheDev</a></h6></div>
+<div class=\"flex justify-between mt-10\"><a href=\"
+\" class=\"flex flex-col gap-2 flex-1\"><div><span class=\"mr-2\">&lt;</span> Previous</div><h4>
+</h4></a> <a href=\"
+\" class=\"flex flex-col items-end gap-2 flex-1 min-w-0\"><div>Next<span class=\"ml-2\">&gt;</span></div><h4 class=\"max-w-full truncate\">
+</h4></a></div>
