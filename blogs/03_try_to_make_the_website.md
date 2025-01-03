@@ -40,20 +40,13 @@ Ordered list
 3. third
 
 ```go
-		goldmark.WithExtensions(highlighting.NewHighlighting(
-			highlighting.WithStyle("dracula"),
-			highlighting.WithWrapperRenderer(func(w util.BufWriter, context highlighting.CodeBlockContext, entering bool) {
-				if entering {
-					_, _ = w.WriteString(`<div class="not-prose">`)
+package main
 
-				} else {
-					_, _ = w.WriteString(`</div>`)
-				}
-			}),
-			highlighting.WithFormatOptions(
-				chromahtml.WithLineNumbers(true),
-			),
-		),
+import "fmt"
+
+func main() {
+    fmt.Println("Hello World")
+}
 ```
 
 Horizontal rule
@@ -79,7 +72,8 @@ Todo List
 
 Hello {#id}
 
-![Gopher Mascot](https://dwglogo.com/wp-content/uploads/2017/08/muscles-clipart-ghoper.gif) { style="width:100px" }
+![Gopher Mascot](https://dwglogo.com/wp-content/uploads/2017/08/muscles-clipart-ghoper.gif)
+Gopher Mascot Credit : [dwglogo.com](https://dwglogo.com)
 
 ##### Mermaid.js
 
