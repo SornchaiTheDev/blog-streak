@@ -2,11 +2,13 @@ package services
 
 import (
 	"blogstreak/models"
+	"cmp"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"io/fs"
 	"os"
+	"slices"
 	"time"
 
 	"github.com/gosimple/slug"
@@ -59,7 +61,7 @@ func getAll() (map[string]string, error) {
 	return metadatas, nil
 }
 
-//TODO: Make it better than this :D
+// TODO: Make it better than this :D
 func (s *metadataService) GetAll() ([]*models.Metadata, error) {
 
 	metadatas, err := getAll()
@@ -81,6 +83,13 @@ func (s *metadataService) GetAll() ([]*models.Metadata, error) {
 		}
 		_metadatas = append(_metadatas, metadata)
 	}
+
+	dateCmp := func(a, b *models.Metadata) int {
+		return cmp.Compare(a.PublishedDate, b.PublishedDate) * -1
+	}
+
+	slices.SortFunc(_metadatas, dateCmp)
+
 	return _metadatas, nil
 }
 
