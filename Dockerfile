@@ -32,13 +32,13 @@ FROM alpine:3.14
 
 WORKDIR /app
 
-COPY --from=build /app/main /app/main
-COPY --from=build /app/blogs /app/blogs
-COPY --from=build /app/blogs_metadata.json /app/blogs_metadata.json
-COPY --from=build /app/streak.json /app/streak.json
-COPY --from=build /app/assets /app/assets
+COPY --from=build /app/main ./main
+COPY --from=build /app/blogs ./blogs
+COPY --from=build /app/blogs_metadata.json ./blogs_metadata.json
+COPY --from=build /app/streak.json ./streak.json
+COPY --from=build /app/assets ./assets
 
 EXPOSE 3000
 
-CMD ["/main"]
+CMD ["./main"]
 
