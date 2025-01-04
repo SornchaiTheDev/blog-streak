@@ -39,11 +39,23 @@ func main() {
 			return
 		}
 
-		component := components.Page(blog, &models.Navigation{
+		component := components.BlogPage(blog, &models.Navigation{
 			Previous: prev,
 			Next:     next,
 		})
 
+		component.Render(context.Background(), w)
+	})
+
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+
+		metadatas, err := metadataService.GetAll()
+		if err != nil {
+			fmt.Fprintf(w, "Something went wrong")
+			return
+		}
+
+		component := components.HomePage(metadatas)
 		component.Render(context.Background(), w)
 	})
 

@@ -2,70 +2,23 @@ package components
 
 import "blogstreak/models"
 
-templ layout() {
-<html>
-
-<head>
-	<title>Blog Streak 2025 | SornchaiTheDev</title>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="/styles.css" />
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
-		rel="stylesheet" />
-	<style>
-		body {
-			font-family: "JetBrains Mono", serif;
-			font-optical-sizing: auto;
-			font-weight: 400;
-			font-style: normal;
-			background: url("/assets/background.gif");
-			color: #fff;
-		}
-	</style>
-</head>
-
-<body>
-	{ children... }
-</body>
-
-</html>
-}
-
-templ Page(blog *models.Blog, nav *models.Navigation) {
+templ BlogPage(blog *models.Blog, nav *models.Navigation) {
 @layout() {
-<div class="w-full min-h-screen bg-white/10">
-	<div class="container mx-auto max-w-3xl p-6 pt-10">
-		@post(blog)
-		@blogNavigator(nav)
-	</div>
-	@footer()
+<div class="container mx-auto max-w-3xl p-6 pt-10">
+	@post(blog)
+	@blogNavigator(nav)
 </div>
 }
 }
 
 templ post(blog *models.Blog) {
-<h3 class="text-xl text-center">Blog Streak</h3>
-<p class="text-center mt-2">🔥 3 days streak</p>
-<div class="mt-10 space-y-4">
-	<h6>Title</h6>
-	<h2 class="text-3xl font-semibold">{ blog.Title }</h2>
-	<h6>Published</h6>
-	<h2 class="font-semibold">{ blog.PublishedDate }</h2>
-	<div
-		class="prose mt-10 tracking-wider leading-loose text-white prose-body:text-white prose-strong:text-white prose-headings:text-white prose-blockquote:text-white prose-code:text-white prose-code:bg-pink-800 prose-code:p-1 prose-code:rounded-lg prose-code:before:content-[''] prose-code:after:content-[''] prose-a:text-pink-500 prose-figcaption:text-center prose-figcaption:text-white prose-figcaption:pt-2">
-		@blog.Body
-	</div>
-</div>
-}
-
-templ footer() {
-<div class="p-6 flex justify-center items-center">
-	<h6 class="text-sm tracking-wide">
-		Made with ☕ by <a class="underline font-semibold hover:text-pink-500"
-			href="https://github.com/SornchaiTheDev" target="_blank">SornchaiTheDev</a>
-	</h6>
+<h6>Title</h6>
+<h2 class="text-3xl font-semibold">{ blog.Title }</h2>
+<h6>Published</h6>
+<h2 class="font-semibold">{ blog.PublishedDate }</h2>
+<div
+	class="prose mt-10 tracking-wider leading-loose text-white prose-body:text-white prose-strong:text-white prose-headings:text-white prose-blockquote:text-white prose-code:text-white prose-code:bg-pink-800 prose-code:p-1 prose-code:rounded-lg prose-code:before:content-[''] prose-code:after:content-[''] prose-a:text-pink-500 prose-figcaption:text-center prose-figcaption:text-white prose-figcaption:pt-2">
+	@blog.Body
 </div>
 }
 

@@ -1,0 +1,27 @@
+package components
+
+import "blogstreak/models"
+
+templ HomePage(blogs []*models.Metadata) {
+	@layout() {
+		<div class="container mx-auto  max-w-3xl px-4">
+			<h4 class="text-2xl">Blogs (10)</h4>
+			@postList(blogs)
+		</div>
+	}
+}
+
+templ postList(blogs []*models.Metadata) {
+	<div class="flex flex-col gap-10 justify-center mt-4">
+		for _,blog := range blogs {
+			@postCard(blog)
+		}
+	</div>
+}
+
+templ postCard(blog *models.Metadata) {
+	<div class="space-y-2 w-fit">
+		<h6 class="text-sm text-pink-500">{ blog.PublishedDate }</h6>
+		<a href={ templ.URL("/blogs/" + blog.Slug) } class="text-3xl hover:text-pink-500 hover:underline">{ blog.Title }</a>
+	</div>
+}

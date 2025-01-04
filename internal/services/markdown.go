@@ -10,6 +10,7 @@ import (
 
 	"github.com/a-h/templ"
 	chromahtml "github.com/alecthomas/chroma/v2/formatters/html"
+	"github.com/gosimple/slug"
 	figure "github.com/mangoumbrella/goldmark-figure"
 	"github.com/yuin/goldmark"
 	highlighting "github.com/yuin/goldmark-highlighting/v2"
@@ -110,8 +111,11 @@ func (s *markdownService) GetMetadata(data []byte) (*models.Metadata, error) {
 		return nil, fmt.Errorf("publishedDate not found on this blog")
 	}
 
+	generatedSlug := slug.Make(title.(string))
+
 	return &models.Metadata{
 		Title:         title.(string),
+		Slug:          generatedSlug,
 		PublishedDate: publishedDate.(string),
 	}, nil
 }

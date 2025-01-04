@@ -59,6 +59,31 @@ func getAll() (map[string]string, error) {
 	return metadatas, nil
 }
 
+//TODO: Make it better than this :D
+func (s *metadataService) GetAll() ([]*models.Metadata, error) {
+
+	metadatas, err := getAll()
+	if err != nil {
+		return nil, err
+	}
+
+	_metadatas := []*models.Metadata{}
+
+	for _, slug := range metadatas {
+		data, err := os.ReadFile(fmt.Sprintf("./blogs/%s.md", slug))
+		if err != nil {
+			return nil, errors.New("Cannot get the blog you request")
+		}
+
+		metadata, err := s.markdownService.GetMetadata(data)
+		if err != nil {
+			return nil, err
+		}
+		_metadatas = append(_metadatas, metadata)
+	}
+	return _metadatas, nil
+}
+
 func getCurrentDate(currentSlug string) (*time.Time, error) {
 	metadatas, err := getAll()
 	if err != nil {
