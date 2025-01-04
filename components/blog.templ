@@ -9,7 +9,7 @@ templ layout() {
 	<title>Blog Streak 2025 | SornchaiTheDev</title>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="styles.css" />
+	<link rel="stylesheet" href="/styles.css" />
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
@@ -20,7 +20,7 @@ templ layout() {
 			font-optical-sizing: auto;
 			font-weight: 400;
 			font-style: normal;
-			background: url("assets/background.gif");
+			background: url("/assets/background.gif");
 			color: #fff;
 		}
 	</style>
@@ -70,18 +70,28 @@ templ footer() {
 }
 
 templ blogNavigator(nav *models.Navigation) {
-<div class="flex justify-between mt-10">
-	<a href={ templ.URL(nav.Previous.Slug) } class="flex flex-col gap-2 flex-1">
+{{ justify := "justify-between" }}
+{{
+if nav.Previous == nil {
+justify = "justify-end"
+}
+}}
+<div class={ "flex mt-10 " + justify }>
+	if nav.Previous != nil {
+	<a href={ templ.URL(nav.Previous.Slug) } class="flex flex-col gap-2 flex-1 max-w-fit">
 		<div>
 			<span class="mr-2">&lt;</span> Previous
 		</div>
 		<h4>{ nav.Previous.Name }</h4>
 	</a>
-	<a href={ templ.URL(nav.Next.Slug) } class="flex flex-col items-end gap-2 flex-1 min-w-0">
+	}
+	if nav.Next != nil {
+	<a href={ templ.URL(nav.Next.Slug) } class="flex flex-col items-end gap-2 min-w-0">
 		<div>
 			Next<span class="ml-2">&gt;</span>
 		</div>
 		<h4 class="max-w-full truncate">{ nav.Next.Name }</h4>
 	</a>
+	}
 </div>
 }
