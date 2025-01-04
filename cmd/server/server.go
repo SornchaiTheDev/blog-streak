@@ -71,6 +71,7 @@ func main() {
 	})
 
 	http.HandleFunc("/styles.css", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "text/css")
 		http.ServeFile(w, r, "assets/styles.css")
 	})
 
