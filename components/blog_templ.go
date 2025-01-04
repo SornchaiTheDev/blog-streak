@@ -31,7 +31,7 @@ func layout() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<html><head><title>Blog Streak 2025 | SornchaiTheDev</title><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><script src=\"https://cdn.tailwindcss.com\"></script><script src=\"https://cdn.tailwindcss.com?plugins=typography\"></script><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;display=swap\" rel=\"stylesheet\"><style>\n\t\tbody {\n\t\t\tfont-family: \"JetBrains Mono\", serif;\n\t\t\tfont-optical-sizing: auto;\n\t\t\tfont-weight: 400;\n\t\t\tfont-style: normal;\n\t\t\tbackground: url(\"assets/background.gif\");\n\t\t\tcolor: #fff;\n\t\t}\n\t</style></head><body>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<html><head><title>Blog Streak 2025 | SornchaiTheDev</title><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><link rel=\"stylesheet\" href=\"styles.css\"><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;display=swap\" rel=\"stylesheet\"><style>\n\t\tbody {\n\t\t\tfont-family: \"JetBrains Mono\", serif;\n\t\t\tfont-optical-sizing: auto;\n\t\t\tfont-weight: 400;\n\t\t\tfont-style: normal;\n\t\t\tbackground: url(\"assets/background.gif\");\n\t\t\tcolor: #fff;\n\t\t}\n\t</style></head><body>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -142,7 +142,7 @@ func post(blog *models.Blog) templ.Component {
 		var templ_7745c5c3_Var5 string
 		templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(blog.Title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `blog.templ`, Line: 54, Col: 48}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/blog.templ`, Line: 53, Col: 48}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 		if templ_7745c5c3_Err != nil {
@@ -155,7 +155,7 @@ func post(blog *models.Blog) templ.Component {
 		var templ_7745c5c3_Var6 string
 		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(blog.PublishedDate)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `blog.templ`, Line: 56, Col: 47}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/blog.templ`, Line: 55, Col: 47}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 		if templ_7745c5c3_Err != nil {
@@ -243,7 +243,7 @@ func blogNavigator(nav *models.Navigation) templ.Component {
 		var templ_7745c5c3_Var10 string
 		templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(nav.Previous.Name)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `blog.templ`, Line: 79, Col: 25}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/blog.templ`, Line: 78, Col: 25}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 		if templ_7745c5c3_Err != nil {
@@ -265,7 +265,7 @@ func blogNavigator(nav *models.Navigation) templ.Component {
 		var templ_7745c5c3_Var12 string
 		templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(nav.Next.Name)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `blog.templ`, Line: 85, Col: 49}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/blog.templ`, Line: 84, Col: 49}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 		if templ_7745c5c3_Err != nil {

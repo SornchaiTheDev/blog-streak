@@ -62,6 +62,10 @@ func main() {
 		http.ServeFile(w, r, "assets/background.gif")
 	})
 
+	http.HandleFunc("/styles.css", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "assets/styles.css")
+	})
+
 	fmt.Println("Server start litening on port 3000")
 	log.Fatal(http.ListenAndServe(":3000", nil))
 }
