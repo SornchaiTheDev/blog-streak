@@ -1,6 +1,7 @@
 package main
 
 import (
+	"blogstreak/internal/services"
 	"flag"
 	"fmt"
 	"log"
@@ -40,6 +41,10 @@ func main() {
 	if err != nil {
 		log.Fatal("Cannot write to file")
 	}
+
+	streakService := services.NewStreakService()
+
+	streakService.Update()
 
 	fmt.Printf(`✨ Create %s blog post successfully`, *name)
 }

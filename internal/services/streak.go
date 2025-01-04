@@ -19,7 +19,7 @@ func NewStreakService() *streakService {
 	return &streakService{}
 }
 
-func (s *streakService) setup() {
+func setup() {
 	file, err := os.Create(fileName)
 	if err != nil {
 		log.Fatalf("Cannot create %s file", fileName)
@@ -32,6 +32,9 @@ func (s *streakService) setup() {
 	}
 
 	data, err := json.MarshalIndent(streak, "", " ")
+	if err != nil {
+		log.Fatalf("Cannot parse the data in %s to Streak struct", fileName)
+	}
 
 	_, err = file.Write(data)
 	if err != nil {
@@ -42,7 +45,7 @@ func (s *streakService) setup() {
 func (s *streakService) Get() int {
 	file, err := os.Open(fileName)
 	if errors.Is(err, fs.ErrNotExist) {
-		s.setup()
+		setup()
 	}
 	defer file.Close()
 
@@ -63,4 +66,44 @@ func (s *streakService) Get() int {
 
 	return days
 
+}
+
+func (s *streakService) Update() {
+	file, err := os.OpenFile(fileName, os.O_RDWR, 0644)
+	if errors.Is(err, fs.ErrNotExist) {
+		setup()
+		file, err = os.OpenFile(fileName, os.O_RDWR, 0644)
+		if err != nil {
+			log.Fatalf("Cannot open %s file", fileName)
+		}
+	}
+	defer file.Close()
+
+	content, err := io.ReadAll(file)
+	if err != nil {
+		log.Fatalf("An error occur when reading %s", fileName)
+	}
+
+	var streak models.Streak
+	err = json.Unmarshal(content, &streak)
+	if err != nil {
+		log.Fatalf("Cannot parse the data in %s to Streak struct", fileName)
+	}
+
+	if time.Now().Sub(streak.LatestDate).Hours() > 24 {
+		streak.StartedDate = time.Now()
+		streak.LatestDate = time.Now()
+	} else {
+		streak.LatestDate = time.Now()
+	}
+
+	data, err := json.MarshalIndent(streak, "", " ")
+	if err != nil {
+		log.Fatalf("Cannot stringify the Streak struct in %s", fileName)
+	}
+
+	_, err = file.WriteAt(data, 0)
+	if err != nil {
+		log.Fatalf("Cannot write to %s file", fileName)
+	}
 }
