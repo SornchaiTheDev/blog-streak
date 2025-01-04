@@ -1,8 +1,8 @@
 <div class=\"container mx-auto max-w-3xl p-6 pt-10\">
 </div>
-<h6>Title</h6><h2 class=\"text-3xl font-semibold\">
+<div class=\"space-y-2\"><h6>Title</h6><h2 class=\"text-3xl font-semibold\">
 </h2><h6>Published</h6><h2 class=\"font-semibold\">
-</h2><div class=\"prose mt-10 tracking-wider leading-loose text-white prose-body:text-white prose-strong:text-white prose-headings:text-white prose-blockquote:text-white prose-code:text-white prose-code:bg-pink-800 prose-code:p-1 prose-code:rounded-lg prose-code:before:content-[&#39;&#39;] prose-code:after:content-[&#39;&#39;] prose-a:text-pink-500 prose-figcaption:text-center prose-figcaption:text-white prose-figcaption:pt-2\">
+</h2></div><div class=\"prose mt-10 tracking-wider leading-loose text-white prose-body:text-white prose-strong:text-white prose-headings:text-white prose-blockquote:text-white prose-code:text-white prose-code:bg-pink-800 prose-code:p-1 prose-code:rounded-lg prose-code:before:content-[&#39;&#39;] prose-code:after:content-[&#39;&#39;] prose-a:text-pink-500 prose-figcaption:text-center prose-figcaption:text-white prose-figcaption:pt-2\">
 </div>
 <div class=\"
 \">

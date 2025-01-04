@@ -90,14 +90,14 @@ func post(blog *models.Blog) templ.Component {
 			templ_7745c5c3_Var3 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<h6>Title</h6><h2 class=\"text-3xl font-semibold\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<div class=\"space-y-2\"><h6>Title</h6><h2 class=\"text-3xl font-semibold\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var4 string
 		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(blog.Title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/blog.templ`, Line: 16, Col: 47}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/blog.templ`, Line: 17, Col: 48}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 		if templ_7745c5c3_Err != nil {
@@ -110,13 +110,13 @@ func post(blog *models.Blog) templ.Component {
 		var templ_7745c5c3_Var5 string
 		templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(blog.PublishedDate)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/blog.templ`, Line: 18, Col: 46}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/blog.templ`, Line: 19, Col: 47}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</h2><div class=\"prose mt-10 tracking-wider leading-loose text-white prose-body:text-white prose-strong:text-white prose-headings:text-white prose-blockquote:text-white prose-code:text-white prose-code:bg-pink-800 prose-code:p-1 prose-code:rounded-lg prose-code:before:content-[&#39;&#39;] prose-code:after:content-[&#39;&#39;] prose-a:text-pink-500 prose-figcaption:text-center prose-figcaption:text-white prose-figcaption:pt-2\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</h2></div><div class=\"prose mt-10 tracking-wider leading-loose text-white prose-body:text-white prose-strong:text-white prose-headings:text-white prose-blockquote:text-white prose-code:text-white prose-code:bg-pink-800 prose-code:p-1 prose-code:rounded-lg prose-code:before:content-[&#39;&#39;] prose-code:after:content-[&#39;&#39;] prose-a:text-pink-500 prose-figcaption:text-center prose-figcaption:text-white prose-figcaption:pt-2\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -197,7 +197,7 @@ func blogNavigator(nav *models.Navigation) templ.Component {
 			var templ_7745c5c3_Var10 string
 			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(nav.Previous.Name)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/blog.templ`, Line: 38, Col: 25}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/blog.templ`, Line: 40, Col: 25}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 			if templ_7745c5c3_Err != nil {
@@ -225,7 +225,7 @@ func blogNavigator(nav *models.Navigation) templ.Component {
 			var templ_7745c5c3_Var12 string
 			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(nav.Next.Name)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/blog.templ`, Line: 46, Col: 49}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/blog.templ`, Line: 48, Col: 49}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
