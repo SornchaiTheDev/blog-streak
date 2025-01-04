@@ -28,7 +28,7 @@ RUN GOOS=linux GOARCH=amd64 go build -o ./main ./cmd/server/server.go
 
 
 # Phrase 3: lean image
-FROM alpine:3.14
+FROM golang:1.23-alpine
 
 WORKDIR /app
 
