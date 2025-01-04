@@ -21,3 +21,5 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/blog-streak:latest
+      - name: Trigger Dockge
+        run: curl -H "Authorization: Bearer ${{ secrets.WATCHTOWER_KEY }} https://blog-trigger.sornchaithedev.com/v1/update"
