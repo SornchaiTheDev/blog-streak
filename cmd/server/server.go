@@ -51,6 +51,7 @@ func main() {
 
 		metadatas, err := metadataService.GetAll()
 		if err != nil {
+			log.Println(err)
 			fmt.Fprintf(w, "Something went wrong")
 			return
 		}
