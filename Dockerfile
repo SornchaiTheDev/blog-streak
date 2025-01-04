@@ -40,5 +40,5 @@ COPY --from=build /app/assets /app/assets
 
 EXPOSE 3000
 
-CMD ["/app/main"]
+CMD ["/main"]
 
