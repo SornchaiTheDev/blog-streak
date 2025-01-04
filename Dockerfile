@@ -24,11 +24,11 @@ RUN go mod download
 
 RUN go run ./cmd/ci/ci.go
 
-RUN GOOS=linux GOARCH=amd64 go build -o ./main ./cmd/server/server.go
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o ./main ./cmd/server/server.go
 
 
 # Phrase 3: lean image
-FROM golang:1.23-alpine
+FROM alpine:3.14
 
 WORKDIR /app
 
