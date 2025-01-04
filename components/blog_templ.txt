@@ -4,12 +4,11 @@
 </h2><h6>Published</h6><h2 class=\"font-semibold\">
 </h2></div><div class=\"prose mt-10 tracking-wider leading-loose text-white prose-body:text-white prose-strong:text-white prose-headings:text-white prose-blockquote:text-white prose-code:text-white prose-code:bg-pink-800 prose-code:p-1 prose-code:rounded-lg prose-code:before:content-[&#39;&#39;] prose-code:after:content-[&#39;&#39;] prose-a:text-pink-500 prose-figcaption:text-center prose-figcaption:text-white prose-figcaption:pt-2\">
 </div>
-<div class=\"
-\">
+<div class=\"flex flex-col md:flex-row mt-10 gap-10\">
 <a href=\"
-\" class=\"flex flex-col gap-2 flex-1 max-w-fit\"><div><span class=\"mr-2\">&lt;</span> Previous</div><h4>
+\" class=\"flex flex-col gap-2 flex-1 min-w-0\"><div><span class=\"mr-2\">&lt;</span> Previous</div><h4 class=\"max-w-full truncate\">
 </h4></a> 
 <a href=\"
-\" class=\"flex flex-col items-end gap-2 min-w-0\"><div>Next<span class=\"ml-2\">&gt;</span></div><h4 class=\"max-w-full truncate\">
+\" class=\"flex flex-col gap-2 items-end flex-1 min-w-0\"><div>Next<span class=\"ml-2\">&gt;</span></div><h4 class=\"max-w-full truncate\">
 </h4></a>
 </div>
