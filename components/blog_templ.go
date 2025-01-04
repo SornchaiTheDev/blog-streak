@@ -116,7 +116,7 @@ func post(blog *models.Blog) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</h2></div><div class=\"prose max-w-full mt-10 tracking-wider leading-loose text-white prose-body:text-white prose-strong:text-white prose-headings:text-white prose-blockquote:text-white prose-code:text-white prose-code:bg-pink-800 prose-code:p-1 prose-code:rounded-lg prose-code:before:content-[&#39;&#39;] prose-code:after:content-[&#39;&#39;] prose-a:text-pink-500 prose-figcaption:text-center prose-figcaption:text-white prose-figcaption:pt-2 text-justify\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</h2></div><div class=\"prose max-w-full mt-10 tracking-wider leading-loose text-white prose-body:text-white prose-strong:text-white prose-headings:text-white prose-blockquote:text-white prose-code:text-white prose-code:bg-pink-800 prose-code:p-1 prose-code:rounded-lg prose-code:before:content-[&#39;&#39;] prose-code:after:content-[&#39;&#39;] prose-a:text-pink-500 prose-figcaption:text-center prose-figcaption:text-white prose-figcaption:pt-2 text-justify prose-ul:list-inside prose-ol:list-inside\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -27,15 +27,22 @@ templ layout() {
 		}
 	</style>
 		</head>
-		<body>
+		<body class="selection:bg-pink-500">
 			<div class="w-full min-h-screen bg-white/10">
 				<div class="py-10 space-y-4">
-					<a href="/" class="text-xl text-center block">Blog Streak</a>
-					<p class="text-center mt-2">
-						🔥 <span id="#streak" hx-trigger="load" hx-get="/api/streaks" class="min-w-2"></span>
-						days
-						streak
-					</p>
+					<div class="flex flex-col justify-center items-center gap-2 w-full">
+						<a href="/" class="text-xl block hover:bg-pink-500 p-2">Blog Streak</a>
+						<p>
+							🔥 <span
+	id="#streak"
+	hx-trigger="load"
+	hx-get="/api/streaks"
+	class="min-w-2"
+></span>
+							days
+							streak
+						</p>
+					</div>
 					{ children... }
 					@footer()
 				</div>

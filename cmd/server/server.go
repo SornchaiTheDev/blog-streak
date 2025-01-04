@@ -57,7 +57,9 @@ func main() {
 			return
 		}
 
-		component := components.HomePage(metadatas)
+		count := strconv.Itoa(len(metadatas))
+
+		component := components.HomePage(metadatas, count)
 		component.Render(context.Background(), w)
 	})
 
