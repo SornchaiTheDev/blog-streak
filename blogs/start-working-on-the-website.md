@@ -65,6 +65,7 @@ Horizontal rule
 Todo List
 
 - [ ] text
+- [X] text
 
 **Bold Text**
 
