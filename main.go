@@ -13,10 +13,12 @@ import (
 )
 
 func main() {
-	blogService := services.NewBlogService()
+	markdownService := services.NewMarkdownService()
+	blogService := services.NewBlogService(markdownService)
+	metadataService := services.NewMetadataService(markdownService)
 	streakService := services.NewStreakService()
 
-	http.HandleFunc("/{slug}", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/blogs/{slug}", func(w http.ResponseWriter, r *http.Request) {
 		slug := r.PathValue("slug")
 
 		blog, err := blogService.Get(slug)
@@ -25,15 +27,21 @@ func main() {
 			return
 		}
 
+		prev, err := metadataService.GetPrevious(slug)
+		if err != nil {
+			fmt.Fprintf(w, "Something went wrong")
+			return
+		}
+		next, err := metadataService.GetNext(slug)
+		if err != nil {
+			fmt.Println(err)
+			fmt.Fprintf(w, "Something went wrong")
+			return
+		}
+
 		component := components.Page(blog, &models.Navigation{
-			Previous: models.NavItem{
-				Name: "Day Zero",
-				Slug: "/day-zero",
-			},
-			Next: models.NavItem{
-				Name: "Day Two",
-				Slug: "/day-two",
-			},
+			Previous: prev,
+			Next:     next,
 		})
 
 		component.Render(context.Background(), w)

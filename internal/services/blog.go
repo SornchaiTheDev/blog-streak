@@ -3,13 +3,20 @@ package services
 import (
 	"blogstreak/models"
 	"errors"
+	"fmt"
+	"io/fs"
+	"log"
 	"os"
 )
 
-type blogService struct{}
+type blogService struct {
+	markdownService MarkdownService
+}
 
-func NewBlogService() *blogService {
-	return &blogService{}
+func NewBlogService(markdownService MarkdownService) *blogService {
+	return &blogService{
+		markdownService: markdownService,
+	}
 }
 
 func (s *blogService) GetAll() ([]string, error) {
@@ -38,7 +45,7 @@ func (s *blogService) Get(name string) (*models.Blog, error) {
 		return nil, err
 	}
 
-	return parseMD(data)
+	return s.markdownService.ParseMD(data)
 
 }
 
@@ -59,14 +66,14 @@ func (s *blogService) validate(name string) bool {
 	return isFound
 }
 
-func (s *blogService) next(_ string) (*models.NavItem, error) {
-	_, err := s.GetAll()
-	if err != nil {
-		return nil, err
+func (s *blogService) New(name string) {
+	path := fmt.Sprintf("./blogs/%s", name)
+	_, err := os.Open(path)
+	if errors.Is(err, fs.ErrNotExist) {
+		_, err := os.Create(path)
+		if err != nil {
+			log.Fatal("Cannot create new blog")
+		}
 	}
 
-	return &models.NavItem{
-		Name: "",
-		Slug: "",
-	}, nil
 }

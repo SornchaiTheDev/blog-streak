@@ -1,8 +1,8 @@
 package models
 
 type Navigation struct {
-	Previous NavItem
-	Next     NavItem
+	Previous *NavItem
+	Next     *NavItem
 }
 
 type NavItem struct {
