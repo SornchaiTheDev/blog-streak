@@ -62,7 +62,7 @@ func (s *streakService) Get() int {
 
 	hoursDiff := streak.LatestDate.Sub(streak.StartedDate).Hours()
 
-	days := int(hoursDiff / 24)
+	days := int(hoursDiff/24) + 1
 
 	return days
 
