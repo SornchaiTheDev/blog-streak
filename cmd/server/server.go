@@ -4,6 +4,7 @@ import (
 	"blogstreak/components"
 	"blogstreak/internal/services"
 	"blogstreak/models"
+	"blogstreak/shared"
 	"context"
 	"fmt"
 	"log"
@@ -83,7 +84,7 @@ func main() {
 		http.ServeFile(w, r, "assets/background.gif")
 	})
 
-	http.HandleFunc("/styles.css", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc(shared.CssName, func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/css")
 		http.ServeFile(w, r, "assets/styles.css")
 	})
