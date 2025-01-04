@@ -8,6 +8,8 @@ RUN go mod download
 
 COPY . .
 
+RUN go run ./cmd/ci/ci.go
+
 RUN GOOS=linux GOARCH=amd64 go build -o ./main ./cmd/server/server.go
 
 EXPOSE 3000
