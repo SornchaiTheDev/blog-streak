@@ -11,6 +11,11 @@ import (
 	"github.com/gosimple/slug"
 )
 
+func isExists(fileName string) bool {
+	_, err := os.Stat(fileName)
+	return err == nil
+}
+
 func main() {
 	name := flag.String("name", "", "The name of the blog post")
 	help := flag.Bool("help", false, "Show help message")
@@ -24,7 +29,14 @@ func main() {
 
 	generatedSlug := slug.Make(*name)
 
-	f, err := os.Create("./blogs/" + generatedSlug + ".md")
+	fileName := "./blogs/" + generatedSlug + ".md"
+
+	if isExists(fileName) {
+		fmt.Println("❌ The blog is already exists")
+		os.Exit(0)
+	}
+
+	f, err := os.Create(fileName)
 	if err != nil {
 		log.Fatal("Cannot create the blog")
 	}
