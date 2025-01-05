@@ -8,7 +8,7 @@ I made this website for my new year resolution to create a blog post everyday by
 - Templ
 - HTMX
 
-### Achivement
+## Achivement
 
 - use `net/http` package to handle request
 - first time using Go Routine with Channel and WaitGroup
@@ -17,7 +17,7 @@ I made this website for my new year resolution to create a blog post everyday by
 - first time using `os` package
 - first time try to parse md file with [goldmark](https://github.com/yuin/goldmark)
 
-### Usage
+## Usage
 
 Create a new blog for today
 
@@ -27,6 +27,6 @@ go run ./cmd/cli/cli.go --name <name>
 
 You can use `" "` when blog name has space
 
-### Author
+## Author
 
 SornchaiTheDev
