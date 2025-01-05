@@ -22,6 +22,9 @@ func main() {
 	http.HandleFunc("/blogs/{slug}", func(w http.ResponseWriter, r *http.Request) {
 		slug := r.PathValue("slug")
 
+		clientIP := r.Header.Get("X-FORWARDED-FOR")
+		log.Printf("🌏 Request from IP %s", clientIP)
+
 		blog, err := blogService.Get(slug)
 		if err != nil {
 			fmt.Fprintf(w, "Something went wrong")
@@ -49,6 +52,8 @@ func main() {
 	})
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		clientIP := r.Header.Get("X-FORWARDED-FOR")
+		log.Printf("🌏 Request from IP %s", clientIP)
 
 		metadatas, err := metadataService.GetAll()
 		if err != nil {
@@ -79,7 +84,7 @@ func main() {
 
 		w.Header().Set("Etag", tag)
 
-		component:= components.Streaks(amount, longest)
+		component := components.Streaks(amount, longest)
 		component.Render(context.Background(), w)
 	})
 
