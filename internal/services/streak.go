@@ -42,7 +42,7 @@ func setup() {
 	}
 }
 
-func (s *streakService) Get() int {
+func (s *streakService) Get() (int, int) {
 	file, err := os.Open(fileName)
 	if errors.Is(err, fs.ErrNotExist) {
 		setup()
@@ -64,7 +64,7 @@ func (s *streakService) Get() int {
 
 	days := int(hoursDiff/24) + 1
 
-	return days
+	return days, streak.Longest
 
 }
 
@@ -91,13 +91,18 @@ func (s *streakService) Update() {
 	}
 
 	if time.Now().Sub(streak.LatestDate).Hours() > 24 {
+		diffHours := streak.LatestDate.Sub(streak.StartedDate).Hours()
+		diffDays := int(diffHours/24) + 1
+		streak.Longest = diffDays
+
 		streak.StartedDate = time.Now()
 		streak.LatestDate = time.Now()
 	} else {
 		streak.LatestDate = time.Now()
+		streak.Longest++
 	}
 
-	data, err := json.MarshalIndent(streak, "", " ")
+	data, err := json.MarshalIndent(streak, "", "  ")
 	if err != nil {
 		log.Fatalf("Cannot stringify the Streak struct in %s", fileName)
 	}

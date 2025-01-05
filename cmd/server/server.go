@@ -64,7 +64,7 @@ func main() {
 	})
 
 	http.HandleFunc("/api/streaks", func(w http.ResponseWriter, r *http.Request) {
-		amount := streakService.Get()
+		amount, longest := streakService.Get()
 		tag := strconv.Itoa(amount)
 		eTag := r.Header.Get("If-None-Match")
 
@@ -79,7 +79,8 @@ func main() {
 
 		w.Header().Set("Etag", tag)
 
-		fmt.Fprintf(w, "%d", amount)
+		component:= components.Streaks(amount, longest)
+		component.Render(context.Background(), w)
 	})
 
 	http.HandleFunc("/assets/background.gif", func(w http.ResponseWriter, r *http.Request) {
